@@ -1,0 +1,18 @@
+@import "tailwindcss";
+/* @plugin "daisyui"; */
+
+
+@theme {
+
+    /* dark mode */
+  --dark-mode: class;
+
+  /* Add new colors */
+  --color-brand: #34d399;
+  --color-secondary: #1E1E1E;
+  --color-primary: #E58411;
+  --color-secondary-bg: #F7F7F7;
+
+  /* fonts */
+   --font-poppins: "Poppins", sans-serif;
+}
