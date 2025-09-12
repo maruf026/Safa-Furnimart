@@ -3,7 +3,7 @@ import { FaCartShopping } from "react-icons/fa6";
 import { FaBars } from "react-icons/fa6";
 import { MdOutlineClose } from "react-icons/md";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 
@@ -45,14 +45,30 @@ function NavItems({toggleMenu}) {
 
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false)
+     const [isScrolled, setIsScrolled] = useState(false);
     function toggleMenu(){
         setIsOpen(prev=> !prev)
     }
+
+      useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 50) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
   return (
-    <header>
-      <nav className="container max-w-screen-[1424px] mx-auto flex justify-between md:justify-around items-center py-6 px-4">
+    <header className={` fixed top-0 left-0 right-0 z-50 transition duration-500 ease-in-out ${isScrolled ? "bg-white shadow-md" : "bg-transparent text-white"}`}>
+      <nav className=" max-w-[1424px] mx-auto flex justify-between md:justify-around items-center py-6 px-4">
         {/* logo */}
-        <Link className="font-bold" to="/">Safa</Link>
+        <Link className="font-bold text-3xl" to="/">Safa</Link>
 
           {/* mobile menu */}
           <div onClick={toggleMenu} className="md:hidden text-xl cursor-pointer hover:text-primary">
