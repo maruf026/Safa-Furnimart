@@ -68,7 +68,7 @@ function Navbar() {
     <header className={` fixed top-0 left-0 right-0 z-50 transition duration-500 ease-in-out ${isScrolled ? "bg-white shadow-md" : "bg-transparent text-white"}`}>
       <nav className=" max-w-[1424px] mx-auto flex justify-between md:justify-around items-center py-6 px-4">
         {/* logo */}
-        <Link className="font-bold text-3xl" to="/">Safa</Link>
+        <Link className="font-bold text-3xl" to="/">Safa Furnimart</Link>
 
           {/* mobile menu */}
           <div onClick={toggleMenu} className="md:hidden text-xl cursor-pointer hover:text-primary">
