@@ -3,7 +3,9 @@ import { FaCartShopping } from "react-icons/fa6";
 import { FaBars } from "react-icons/fa6";
 import { MdOutlineClose } from "react-icons/md";
 
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { CartContext } from "../context/CartContext";
+
 
 
 
@@ -64,6 +66,9 @@ function Navbar() {
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
+
+    // cart items from contexts
+    const {cartCount} = useContext(CartContext)
   return (
     <header className={` fixed top-0 left-0 right-0 z-50 transition duration-500 ease-in-out ${isScrolled ? "bg-white shadow-md" : "bg-transparent text-white"}`}>
       <nav className=" max-w-[1424px] mx-auto flex justify-between md:justify-around items-center py-6 px-4">
@@ -90,7 +95,7 @@ function Navbar() {
         {/* cart icon */}
         <div className="hidden md:block cursor-pointer relative">
             <FaCartShopping className="text-xl"/>
-            <sup className="absolute top-0 -right-3 bg-primary text-white h-5 w-5 rounded-full flex justify-center items-center text-xs">0</sup>
+            <sup className="absolute top-0 -right-3 bg-primary text-white h-5 w-5 rounded-full flex justify-center items-center text-xs">{cartCount}</sup>
         </div>
       </nav>
     </header>

@@ -1,12 +1,12 @@
-// import React, { useContext } from 'react'
+import React, { useContext } from 'react'
 import { FiPlus } from "react-icons/fi";
 // import productImg from "../../assets/products/lamp-1.png"
 import Rating from '../../components/Rating'
-// import { CartContext } from '../../context/CartContext';
+import { CartContext } from '../../context/CartContext';
 import { getImgUrl } from '../../utils/getImgUrl';
 
 const ProductCard = ({ product }) => {
-    // const { addToCart } = useContext(CartContext);
+    const { addToCart } = useContext(CartContext);
    return (
   <div
     key={product.id}
@@ -34,7 +34,7 @@ const ProductCard = ({ product }) => {
         </p>
         <button
           className="bg-secondary text-white px-4 py-2 rounded-lg font-medium hover:bg-secondary/90 transition-colors"
-          // onClick={() => addToCart(product)}
+          onClick={() => addToCart(product)}
         >
           Add to Cart
         </button>
