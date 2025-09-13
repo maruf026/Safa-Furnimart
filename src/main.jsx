@@ -9,8 +9,8 @@ import "./index.css";
 import App from "./App";
 import Home from "./pages/home/Home";
 import Shop from "./pages/shop/Shop";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
+import About from "./pages/about/About";
+import Contact from "./pages/contact/Contact";
 
 
 const router = createBrowserRouter([
